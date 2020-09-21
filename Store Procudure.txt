@@ -1,0 +1,42 @@
+---///  Create store Procudure ///
+--Create Proc sp_Customer 
+--as
+--Begin 
+--Select Name,Email,Phone from Customer
+--end;
+--///Create Proudure help text
+
+--sp_helpText sp_Customer
+
+--Alter Proc sp_Customer   
+--as  
+--Begin   
+--Select Name,Email,Phone from Customer  order by Name 
+--end;
+--// One prameter store Procedure///
+
+--Create Proc spOrders
+--@OrderNumber nvarchar(20)
+--as
+--Begin
+--Select OrderNumber from Orders where OrderNumber=@OrderNumber
+--end;
+
+--//Excute Sp
+--spOrders @OrderNumber='0001'
+
+---//Multiple Prameter 
+--Create proc sp_MultiPrameter
+--@OrderNumber nvarchar(20),
+--@CustomerId int ,
+--@ProductId int
+--as
+--begin
+--Select Orders.OrderNumber,Orders.CustomerId,Orders.ProductId from
+--Orders where Orders.OrderNumber=@OrderNumber and Orders.CustomerId=@CustomerId and Orders.ProductId=@ProductId
+--end;
+
+----//Excute Multi parameter Sp
+--sp_MultiPrameter @OrderNumber='0001',@CustomerId=1,@ProductId=1;
+---///Drop procudure or Delete
+---drop proc getCustomerShortList
